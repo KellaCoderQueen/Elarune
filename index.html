@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f3ed">
+<meta name="description" content="ELARUNE BEAUTY — premium makeup essentials curated around you.">
+<title>ELARUNE BEAUTY — Beauty, curated around you.</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--ink:#211b1a;--cream:#f8f3ed;--rose:#bd817a;--rose2:#a96962;--gold:#b99a62;--muted:#766b67;--line:#e7ddd5;--card:#fffdfa;--white:#fff;--shadow:0 12px 34px rgba(44,29,24,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;padding-bottom:104px}
+header{position:sticky;top:0;z-index:40;background:rgba(248,243,237,.94);backdrop-filter:blur(16px);padding:15px 18px 12px;border-bottom:1px solid var(--line)}.header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{letter-spacing:.16em;font-size:13px;font-weight:900}.tag{color:var(--muted);font-size:11px;margin-top:4px}.header-actions{display:flex;gap:7px}.icon-btn{width:38px;height:38px;border:1px solid var(--line);background:var(--card);border-radius:50%;color:var(--ink);position:relative}.badge{position:absolute;right:-2px;top:-3px;background:var(--rose);color:white;border-radius:99px;min-width:17px;height:17px;font-size:9px;display:grid;place-items:center;font-weight:900;padding:0 4px}
+.hero{margin:16px;border-radius:26px;overflow:hidden;position:relative;min-height:370px;background:#ddd;box-shadow:var(--shadow)}.hero img{width:100%;height:370px;object-fit:cover;display:block;transition:opacity .35s ease}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03) 25%,rgba(0,0,0,.68))}.hero-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:25px;color:white}.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:900;text-transform:uppercase;margin-bottom:8px}.hero-copy h1{font-family:Georgia,serif;font-size:42px;line-height:.95;margin:0 0 12px}.hero-copy p{margin:0 0 18px;color:#f4efeb;font-size:14px;max-width:420px}.cta{border:0;border-radius:999px;background:white;color:var(--ink);padding:13px 19px;font-weight:900}.dots{position:absolute;z-index:3;right:20px;bottom:22px;display:flex;gap:5px}.dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.45)}.dot.active{width:20px;border-radius:10px;background:white}
+.section{padding:6px 18px}.section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}.section h2{font:26px Georgia,serif;margin:0}.see{color:var(--rose2);font-size:11px;font-weight:900;letter-spacing:.08em}.chips{display:flex;gap:8px;overflow:auto;padding-bottom:7px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid #dfd2c9;background:transparent;border-radius:999px;padding:9px 13px;color:var(--ink)}.chip.active{background:var(--ink);color:white}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(44,29,24,.05);position:relative}.card img{width:100%;aspect-ratio:1/1.12;object-fit:cover;display:block}.fav{position:absolute;right:9px;top:9px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,253,250,.9);color:var(--ink)}.fav.on{color:var(--rose)}.pad{padding:12px}.cat{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:900}.name{font:17px Georgia,serif;margin:5px 0;min-height:39px}.price{font-weight:900;font-size:13px}.subprice{font-size:11px;color:var(--muted);margin-top:3px}.add{width:100%;margin-top:10px;border:0;background:var(--ink);color:white;padding:10px;border-radius:12px;font-weight:900}.add:active{transform:scale(.98)}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tool{background:white;border:1px solid #e8ddd5;border-radius:18px;padding:17px;transition:transform .15s}.tool:active{transform:translateY(1px)}.tool b{display:block;margin:7px 0 4px}.tool span{font-size:12px;color:var(--muted)}.feature-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.mini{background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:15px;padding:12px;text-align:center}.mini b{display:block;font-size:12px}.mini span{display:block;color:var(--muted);font-size:9px;margin-top:4px}
+.banner{margin:20px 18px;padding:22px;border-radius:22px;background:var(--ink);color:white;position:relative;overflow:hidden}.banner:after{content:"✦";position:absolute;right:18px;top:8px;font-size:65px;opacity:.08}.banner h3{font:26px Georgia,serif;margin:0 0 7px}.banner p{margin:0 0 13px;color:#ddd1cc;font-size:12px}.banner button{border:0;background:#fff;color:var(--ink);border-radius:99px;padding:10px 14px;font-weight:900}
+.bottom{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,253,250,.97);border-top:1px solid #e6dcd4;padding:8px max(10px,calc((100vw - 760px)/2 + 10px));display:grid;grid-template-columns:repeat(5,1fr);gap:3px}.nav{border:0;background:transparent;color:#746966;font-size:9px;padding:6px}.nav strong{display:block;font-size:17px;margin-bottom:2px}.nav.active{color:var(--ink)}
+.modal{display:none;position:fixed;z-index:80;inset:0;background:rgba(25,18,16,.5);align-items:end}.sheet{background:var(--cream);border-radius:28px 28px 0 0;width:100%;max-width:760px;margin:auto;padding:20px;max-height:90vh;overflow:auto;box-shadow:0 -20px 60px rgba(0,0,0,.15)}.close{float:right;border:0;background:#eee1d8;border-radius:50%;width:34px;height:34px}.big{font:30px Georgia,serif;margin:10px 0 4px}.muted{color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #e6dad2}.qty{display:flex;align-items:center;gap:7px}.qty button{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;background:white}.checkout{width:100%;border:0;border-radius:15px;background:var(--rose);color:white;padding:15px;font-weight:900;margin-top:14px}.secondary{width:100%;border:1px solid var(--line);border-radius:15px;background:white;color:var(--ink);padding:13px;font-weight:900;margin-top:9px}.input{width:100%;border:1px solid var(--line);background:white;border-radius:13px;padding:12px;margin-top:8px;outline:none}.input:focus{border-color:var(--rose)}.label{font-size:11px;font-weight:900;margin-top:13px;display:block}.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:15px}.product-detail img{width:100%;border-radius:18px;aspect-ratio:1/1.1;object-fit:cover}.price-big{font-size:20px;font-weight:900;margin:9px 0}.pills{display:flex;flex-wrap:wrap;gap:6px}.pill{border:1px solid var(--line);background:white;border-radius:99px;padding:7px 9px;font-size:10px}.empty{text-align:center;padding:24px 8px;color:var(--muted)}.empty strong{display:block;color:var(--ink);font:24px Georgia,serif;margin-bottom:5px}.order-card{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:10px}.order-card b{font-size:12px}.order-card small{color:var(--muted)}
+.searchbox{display:flex;gap:8px;margin:8px 0 12px}.searchbox input{flex:1}.search-results{display:grid;gap:8px}.search-item{display:flex;align-items:center;gap:10px;padding:8px;background:white;border:1px solid var(--line);border-radius:13px}.search-item img{width:48px;height:55px;object-fit:cover;border-radius:9px}.search-item b{font:15px Georgia,serif}.toast{position:fixed;left:50%;bottom:82px;transform:translate(-50%,15px);background:var(--ink);color:white;padding:11px 15px;border-radius:99px;font-size:12px;font-weight:800;z-index:100;opacity:0;pointer-events:none;transition:.22s;white-space:nowrap;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:650px){.hero{min-height:450px}.hero img{height:450px}.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+<style>
+/* ELARUNE BEAUTY v2 — depth layer */
+.section-kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.68rem;font-weight:700;opacity:.62;margin-bottom:.55rem}
+.editorial-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin:24px 0}
+.editorial-card{position:relative;min-height:360px;overflow:hidden;border-radius:24px;background:#241c1a;color:#fff;display:flex;align-items:flex-end;padding:30px}
+.editorial-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:transform .7s}
+.editorial-card:hover img{transform:scale(1.045)}
+.editorial-card>div{position:relative;z-index:1;max-width:480px}
+.editorial-card h3{font-family:Georgia,serif;font-size:clamp(1.7rem,4vw,3rem);margin:.2rem 0 .5rem}
+.editorial-card p{max-width:430px;opacity:.88;line-height:1.6}
+.story-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center;margin:60px 0;padding:34px;border-radius:28px;background:#f8f2ea}
+.story-panel img{width:100%;height:440px;object-fit:cover;border-radius:20px}
+.story-copy h2,.journal h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.03;margin:.15rem 0 1rem}
+.story-copy p{line-height:1.8;opacity:.78}
+.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}
+.pill{border:1px solid rgba(36,28,26,.15);padding:8px 12px;border-radius:999px;font-size:.78rem}
+.review-grid,.journal-grid,.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-card{padding:24px;border:1px solid rgba(36,28,26,.1);border-radius:20px;background:#fff}
+.stars{letter-spacing:.12em}
+.review-card p{line-height:1.65;opacity:.78}
+.review-card small{opacity:.55}
+.journal{margin:62px 0}
+.journal-card{overflow:hidden;border-radius:20px;background:#fff;border:1px solid rgba(36,28,26,.1)}
+.journal-card img{width:100%;height:190px;object-fit:cover}
+.journal-card div{padding:18px}
+.journal-card h3{font-family:Georgia,serif;font-size:1.35rem;margin:.2rem 0 .5rem}
+.journal-card p{font-size:.9rem;line-height:1.55;opacity:.7}
+.social-grid{grid-template-columns:repeat(4,1fr)}
+.social-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.newsletter{margin:60px 0;padding:42px 28px;border-radius:28px;background:#241c1a;color:#fff;text-align:center}
+.newsletter h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);margin:.15rem 0 .7rem}
+.newsletter p{opacity:.75;max-width:600px;margin:0 auto 22px;line-height:1.6}
+.newsletter-form{display:flex;max-width:570px;margin:auto;gap:8px}
+.newsletter-form input{flex:1;min-width:0;border:0;border-radius:999px;padding:15px 18px}
+.newsletter-form button{border:0;border-radius:999px;padding:15px 22px;cursor:pointer}
+.v2-footer{border-top:1px solid rgba(36,28,26,.1);padding:36px 0 48px;margin-top:30px}
+.footer-cols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:25px}
+.footer-cols h4{margin:0 0 12px}
+.footer-cols a{display:block;text-decoration:none;color:inherit;opacity:.65;margin:9px 0;font-size:.88rem}
+.product-extra{margin-top:18px;padding-top:18px;border-top:1px solid rgba(36,28,26,.1)}
+.product-extra strong{display:block;margin-bottom:6px}
+.shade-dots{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.shade-dot{width:27px;height:27px;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.shade-dot.active{outline:2px solid #241c1a;outline-offset:2px}
+.progress-wrap{margin:12px 0 18px}
+.progress-track{height:7px;border-radius:99px;background:#eee}
+.progress-fill{height:100%;border-radius:99px;background:#c88f86}
+@media(max-width:760px){
+ .editorial-grid,.story-panel,.footer-cols{grid-template-columns:1fr}
+ .editorial-card{min-height:310px}
+ .story-panel img{height:330px}
+ .review-grid,.journal-grid{grid-template-columns:1fr}
+ .social-grid{grid-template-columns:repeat(2,1fr)}
+ .newsletter-form{flex-direction:column}
+ .newsletter-form button{width:100%}
+}
+</style></head>
+<body>
+<div class="app">
+<header><div class="header-row"><div><div class="brand">ELARUNE BEAUTY</div><div class="tag">Beauty, curated around you.</div></div><div class="header-actions"><button class="icon-btn" onclick="openSearch()" aria-label="Search">⌕</button><button class="icon-btn" onclick="openWishlist()" aria-label="Wishlist">♡<span class="badge" id="wishCount">0</span></button><button class="icon-btn" onclick="openCart()" aria-label="Bag">🛍<span class="badge" id="headCount">0</span></button></div></div></header>
+<section class="hero"><img id="hero" src="https://images.pexels.com/photos/8065401/pexels-photo-8065401.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Beauty editorial"><div class="hero-copy"><div class="eyebrow">THE ELARUNE EDIT</div><h1>Your beauty.<br>Elevated.</h1><p>Modern makeup essentials designed for effortless confidence.</p><button class="cta" onclick="scrollToId('shop')">Shop the collection</button></div><div class="dots" id="dots"></div></section>
+<section class="section"><div class="section-head"><h2>Discover your look</h2></div><div class="tools"><div class="tool" onclick="quiz('look')">✨ <b>Find My Look</b><span>Get personalized makeup picks.</span></div><div class="tool" onclick="quiz('shade')">🎨 <b>Find My Shade</b><span>Choose a starting shade family.</span></div><div class="tool" onclick="quiz('routine')">💄 <b>Build My Routine</b><span>Create a simple routine.</span></div><div class="tool" onclick="openOrders()">📦 <b>My Orders</b><span>View your recent orders.</span></div></div><div class="feature-strip"><div class="mini"><b>Free US Shipping</b><span>On $75+ orders</span></div><div class="mini"><b>Beauty Rewards</b><span>1 point per $1</span></div><div class="mini"><b>Curated Support</b><span>Beauty guidance</span></div></div></section>
+<section class="banner"><h3>Meet your Soft Glam Edit.</h3><p>A polished six-piece mood for effortless evenings, events and everything between.</p><button onclick="openProduct('softglam')">Explore the set →</button></section>
+<section class="section" id="shop"><div class="section-head"><h2>The Edit</h2><span class="see">CURATED BESTSELLERS</span></div><div class="chips" id="chips"></div><div class="grid" id="grid"></div></section>
+<section class="section"><div class="section-head"><h2>Why ELARUNE</h2></div><div class="tool"><b>Curated, not complicated.</b><span>We make everyday makeup feel personal, polished and easy to shop.</span><div class="pills" style="margin-top:12px"><span class="pill">Premium feel</span><span class="pill">Beginner friendly</span><span class="pill">Everyday essentials</span><span class="pill">US-focused</span></div></div></section>
+<section class="section"><div class="section-head"><h2>Need help?</h2><span class="see">CONCIERGE</span></div><div class="tools"><div class="tool" onclick="openSupport()">💌 <b>Beauty Concierge</b><span>Ask about shades, routines or products.</span></div><div class="tool" onclick="openFaq()">❔ <b>FAQ</b><span>Shipping, returns and ordering.</span></div></div></section>
+</div>
+<nav class="bottom"><button class="nav active" onclick="goHome()"><strong>⌂</strong>Home</button><button class="nav" onclick="scrollToId('shop')"><strong>◌</strong>Shop</button><button class="nav" onclick="quiz('look')"><strong>✦</strong>Discover</button><button class="nav" onclick="openWishlist()"><strong>♡</strong>Saved</button><button class="nav" onclick="openCart()"><strong>🛍</strong>Bag</button></nav>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="sheet"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
+<script>
+const tg=window.Telegram?.WebApp||null;if(tg){tg.ready();tg.expand();tg.setHeaderColor?.('#f8f3ed');tg.setBackgroundColor?.('#f8f3ed');tg.enableClosingConfirmation?.();}
+const products=[
+{id:'skinveil',name:'Skin Veil Soft-Matte Foundation',cat:'Complexion',price:34,img:'https://images.pexels.com/photos/8065401/pexels-photo-8065401.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A soft-focus complexion essential designed for a polished everyday finish.',tags:['Buildable','Soft matte','Everyday']},
+{id:'lumiglow',name:'LumiGlow Cream Blush',cat:'Cheeks',price:24,img:'https://images.pexels.com/photos/5468739/pexels-photo-5468739.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A creamy flush that melts into the skin for a fresh, luminous finish.',tags:['Cream','Glow','Blendable']},
+{id:'silklip',name:'SilkTint Hydrating Lip Veil',cat:'Lips',price:22,img:'https://images.pexels.com/photos/9219004/pexels-photo-9219004.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A comfortable tint with a soft veil of color and a hydrated look.',tags:['Hydrating','Tint','Soft shine']},
+{id:'define',name:'Define & Lift Mascara',cat:'Eyes',price:26,img:'https://images.pexels.com/photos/8570002/pexels-photo-8570002.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A defining mascara concept for lifted, separated-looking lashes.',tags:['Lift','Define','Everyday']},
+{id:'brushset',name:'The Essential Brush Set',cat:'Tools',price:42,img:'https://images.pexels.com/photos/6575019/pexels-photo-6575019.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A streamlined brush wardrobe for complexion, cheeks and finishing touches.',tags:['5-piece','Soft bristles','Travel']},
+{id:'softglam',name:'Soft Glam Edit',cat:'Sets',price:78,img:'https://images.pexels.com/photos/7881274/pexels-photo-7881274.jpeg?auto=compress&cs=tinysrgb&w=800',desc:'A curated set for effortless soft-glam moments from desk to dinner.',tags:['Curated set','Soft glam','Giftable']}];
+let cart=readJSON('elarune_cart',{}),wishlist=readJSON('elarune_wishlist',[]),orders=readJSON('elarune_orders',[]),filter='All',searchTimer=null;
+const cats=['All','Complexion','Eyes','Lips','Cheeks','Tools','Sets'];
+function readJSON(k,f){try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(f))}catch(e){return f}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function render(){document.getElementById('chips').innerHTML=cats.map(c=>`<button class="chip ${filter===c?'active':''}" onclick="setFilter('${c}')">${c}</button>`).join('');let arr=filter==='All'?products:products.filter(p=>p.cat===filter);document.getElementById('grid').innerHTML=arr.map(p=>`<article class="card"><button class="fav ${wishlist.includes(p.id)?'on':''}" onclick="toggleWish('${p.id}')">${wishlist.includes(p.id)?'♥':'♡'}</button><img src="${p.img}" loading="lazy" alt="${p.name}"><div class="pad"><div class="cat">${p.cat}</div><div class="name">${p.name}</div><div class="price">$${p.price.toFixed(2)}</div><div class="subprice">Tap for details</div><button class="add" onclick="add('${p.id}')">Add to bag</button></div></article>`).join('');updateCount()}
+function setFilter(c){filter=c;render();scrollToId('shop')}
+function add(id,qty=1){cart[id]=(cart[id]||0)+qty;if(cart[id]<=0)delete cart[id];save('elarune_cart',cart);updateCount();showToast(qty>0?'Added to your bag ✨':'Removed');}
+function updateCount(){let n=Object.values(cart).reduce((a,b)=>a+b,0);document.getElementById('headCount').textContent=n;document.getElementById('wishCount').textContent=wishlist.length}
+function openCart(){let ids=Object.keys(cart);let total=ids.reduce((s,id)=>{let p=products.find(x=>x.id===id);return s+(p?p.price*cart[id]:0)},0);let rows=ids.length?ids.map(id=>{let p=products.find(x=>x.id===id);if(!p)return '';return `<div class="row"><div style="flex:1"><b>${p.name}</b><div class="muted">$${p.price.toFixed(2)} each</div><div class="qty"><button onclick="changeQty('${id}',-1)">−</button><span>${cart[id]}</span><button onclick="changeQty('${id}',1)">+</button></div></div><b>$${(p.price*cart[id]).toFixed(2)}</b></div>`}).join(''):'<div class="empty"><strong>Your bag is waiting.</strong>Add something beautiful to get started.</div>';modalContent.innerHTML=`<div class="big">Your bag</div><div class="muted">${ids.length?Object.values(cart).reduce((a,b)=>a+b,0)+' item(s) selected.':''}</div>${rows}${ids.length?`<h3>Total: $${total.toFixed(2)}</h3><div class="muted">Demo shipping is calculated at checkout.</div><button class="checkout" onclick="openCheckout()">Continue to checkout</button><button class="secondary" onclick="closeModal()">Continue shopping</button>`:''}`;openModal()}
+function changeQty(id,n){add(id,n);openCart()}
+function openCheckout(){if(!Object.keys(cart).length)return showToast('Your bag is empty');let total=cartTotal();modalContent.innerHTML=`<div class="big">Checkout</div><div class="muted">Complete your details. In Telegram, your order will be sent to the ELARUNE bot.</div><label class="label">Full name<input id="coName" class="input" placeholder="Jane Doe"></label><label class="label">Email<input id="coEmail" type="email" class="input" placeholder="jane@example.com"></label><label class="label">Delivery address<input id="coAddress" class="input" placeholder="Street, city, state"></label><label class="label">Notes <span class="muted">(optional)</span><textarea id="coNotes" class="input" rows="3" placeholder="Shade preference, gift note, etc."></textarea></label><button class="checkout" onclick="placeOrder()">Place order • $${total.toFixed(2)}</button><button class="secondary" onclick="openCart()">Back to bag</button>`}
+function placeOrder(){let name=document.getElementById('coName')?.value.trim(),email=document.getElementById('coEmail')?.value.trim(),address=document.getElementById('coAddress')?.value.trim(),notes=document.getElementById('coNotes')?.value.trim()||'';if(!name||!email||!address)return showToast('Please complete your name, email and address.');let order={type:'checkout',orderId:'ELR-'+Date.now().toString().slice(-7),cart:{...cart},customer:{name,email,address,notes},total:cartTotal(),createdAt:new Date().toISOString()};if(tg?.sendData){try{tg.sendData(JSON.stringify(order));showToast('Order sent to ELARUNE ✨');}catch(e){saveLocalOrder(order);showOrderSuccess(order,'Telegram could not receive the order, so it was saved on this device.');}}else{saveLocalOrder(order);showOrderSuccess(order,'Demo order saved on this device. Open the shop inside Telegram to send orders to the bot.')} }
+function saveLocalOrder(order){orders.unshift({...order,status:'Received'});orders=orders.slice(0,10);save('elarune_orders',orders);cart={};save('elarune_cart',cart);updateCount()}
+function showOrderSuccess(order,note){modalContent.innerHTML=`<div style="text-align:center;padding:14px 0"><div style="font-size:42px">✓</div><div class="big">Order received</div><p class="muted">${note}</p><div class="order-card"><b>${order.orderId}</b><br><small>Total: $${order.total.toFixed(2)}</small></div><button class="checkout" onclick="closeModal();scrollToId('shop')">Continue shopping</button></div>`}
+function cartTotal(){return Object.keys(cart).reduce((s,id)=>{let p=products.find(x=>x.id===id);return s+(p?p.price*cart[id]:0)},0)}
+function openProduct(id){let p=products.find(x=>x.id===id);if(!p)return;modalContent.innerHTML=`<div class="product-detail"><img src="${p.img}" alt="${p.name}"><div><div class="cat">${p.cat}</div><div class="big">${p.name}</div><div class="price-big">$${p.price.toFixed(2)}</div><p class="muted">${p.desc}</p><div class="pills">${p.tags.map(t=>`<span class="pill">${t}</span>`).join('')}</div><button class="checkout" onclick="add('${p.id}');closeModal()">Add to bag</button><button class="secondary" onclick="toggleWish('${p.id}');openProduct('${p.id}')">${wishlist.includes(p.id)?'♥ Saved':'♡ Save for later'}</button></div></div>`;openModal()}
+function toggleWish(id){if(wishlist.includes(id))wishlist=wishlist.filter(x=>x!==id);else wishlist.push(id);save('elarune_wishlist',wishlist);updateCount();render();showToast(wishlist.includes(id)?'Saved to your wishlist ♡':'Removed from wishlist');}
+function openWishlist(){let arr=products.filter(p=>wishlist.includes(p.id));modalContent.innerHTML=`<div class="big">Saved for later</div><div class="muted">Your ELARUNE wishlist.</div>${arr.length?arr.map(p=>`<div class="row"><div style="display:flex;gap:10px;align-items:center;flex:1"><img src="${p.img}" style="width:52px;height:62px;object-fit:cover;border-radius:9px"><div><b>${p.name}</b><div class="muted">$${p.price.toFixed(2)}</div></div></div><button class="secondary" style="width:auto;margin:0;padding:8px 11px" onclick="add('${p.id}');closeModal()">Add</button></div>`).join(''):'<div class="empty"><strong>Nothing saved yet.</strong>Tap ♡ on a product you love.</div>'}`;openModal()}
+function openSearch(){modalContent.innerHTML=`<div class="big">Search ELARUNE</div><div class="searchbox"><input id="searchInput" class="input" style="margin:0" placeholder="Foundation, blush, lips..." oninput="runSearch()"></div><div id="searchResults" class="search-results"></div>`;openModal();setTimeout(()=>document.getElementById('searchInput')?.focus(),100)}
+function runSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>{let q=(document.getElementById('searchInput')?.value||'').toLowerCase().trim();let arr=q?products.filter(p=>(p.name+' '+p.cat+' '+p.desc+' '+p.tags.join(' ')).toLowerCase().includes(q)):products.slice(0,4);document.getElementById('searchResults').innerHTML=arr.length?arr.map(p=>`<div class="search-item" onclick="openProduct('${p.id}')"><img src="${p.img}"><div style="flex:1"><b>${p.name}</b><div class="muted">${p.cat} • $${p.price.toFixed(2)}</div></div>→</div>`).join(''):'<div class="empty">No matches found.</div>'},80)}
+function quiz(kind){let title=kind==='look'?'Find My Look':kind==='shade'?'Find My Shade':'Build My Routine';let opts=kind==='look'?['Everyday Natural','Soft Glam','Date Night','Full Glam']:kind==='shade'?['Fair / Light','Medium','Tan / Deep','Not Sure']:['3-Minute Everyday','Soft Glam','Date Night'];modalContent.innerHTML=`<div class="big">${title}</div><p class="muted">Choose what feels closest and we’ll recommend a starting edit.</p>${opts.map(x=>`<button class="add" style="margin:5px 0" onclick="answer('${kind}','${x}')">${x}</button>`).join('')}`;openModal()}
+function answer(kind,x){let picks=kind==='look'?(x==='Full Glam'?['skinveil','lumiglow','silklip','define','brushset']:x==='Date Night'?['skinveil','lumiglow','silklip','define']:['skinveil','lumiglow','silklip']):kind==='shade'?['skinveil']:['skinveil','lumiglow','silklip'];let names=picks.map(id=>products.find(p=>p.id===id)?.name).filter(Boolean);modalContent.innerHTML=`<div class="big">Your ELARUNE edit ✨</div><p class="muted">For <b>${x}</b>, start with:</p><div class="order-card">${names.map(n=>`<div style="padding:5px 0">• ${n}</div>`).join('')}</div><button class="checkout" onclick="${picks.length?`picks.forEach(id=>add(id));`:''}closeModal();scrollToId('shop')">Add my picks</button><button class="secondary" onclick="closeModal()">Maybe later</button>`}
+function openOrders(){let html=orders.length?orders.map(o=>`<div class="order-card"><b>${o.orderId}</b><br><small>${new Date(o.createdAt).toLocaleString()} • ${o.status||'Received'} • $${Number(o.total).toFixed(2)}</small></div>`).join(''):'<div class="empty"><strong>No orders yet.</strong>Your completed demo orders will appear here.</div>';modalContent.innerHTML=`<div class="big">My orders</div><div class="muted">Orders saved on this device.</div>${html}<button class="secondary" onclick="closeModal()">Close</button>`;openModal()}
+function openSupport(){modalContent.innerHTML=`<div class="big">Beauty Concierge</div><p class="muted">Tell us what you need help with. This demo sends your request back to the bot when opened inside Telegram.</p><label class="label">Your question<textarea id="supportText" class="input" rows="4" placeholder="I need help choosing a foundation..."></textarea></label><button class="checkout" onclick="sendSupport()">Send to ELARUNE</button>`;openModal()}
+function sendSupport(){let text=document.getElementById('supportText')?.value.trim();if(!text)return showToast('Write your question first.');let payload={type:'support',message:text};if(tg?.sendData){tg.sendData(JSON.stringify(payload));showToast('Message sent ✨')}else{showToast('Open the shop inside Telegram to contact the bot.')}}
+function openFaq(){modalContent.innerHTML=`<div class="big">FAQ</div><div class="order-card"><b>How does checkout work?</b><p class="muted">Inside Telegram, checkout sends your order details to the ELARUNE bot. Payment can be connected later.</p></div><div class="order-card"><b>Is this a real store?</b><p class="muted">This is a polished demo storefront for the fictional ELARUNE BEAUTY brand.</p></div><div class="order-card"><b>Can I change an order?</b><p class="muted">Contact the Beauty Concierge with your order number before fulfillment.</p></div><button class="secondary" onclick="closeModal()">Close</button>`;openModal()}
+function openModal(){document.getElementById('modal').style.display='flex'}function closeModal(){document.getElementById('modal').style.display='none'}function scrollToId(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}function goHome(){window.scrollTo({top:0,behavior:'smooth'})}
+let hs=['8065401','5468739','9219004','7881274'];let hi=0;const dots=document.getElementById('dots');dots.innerHTML=hs.map((_,i)=>`<button class="dot ${i===0?'active':''}" onclick="heroTo(${i})"></button>`).join('');function heroTo(i){hi=i;document.getElementById('hero').style.opacity='.35';setTimeout(()=>{document.getElementById('hero').src=`https://images.pexels.com/photos/${hs[hi]}/pexels-photo-${hs[hi]}.jpeg?auto=compress&cs=tinysrgb&w=1400`;document.getElementById('hero').style.opacity='1'},160);document.querySelectorAll('.dot').forEach((d,n)=>d.classList.toggle('active',n===hi))}setInterval(()=>heroTo((hi+1)%hs.length),5500);
+let toastTimer;function showToast(t){let el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2600)}
+// Make product cards open detail when the image/name area is tapped, while keeping Add-to-bag buttons independent.
+document.addEventListener('click',e=>{let card=e.target.closest('.card');if(!card||e.target.closest('button'))return;let visible=filter==='All'?products:products.filter(p=>p.cat===filter);let idx=[...document.querySelectorAll('#grid .card')].indexOf(card);if(visible[idx])openProduct(visible[idx].id)});
+render();
+</script>
+
+<section class="editorial-grid" id="collections">
+  <article class="editorial-card">
+    <img src="https://images.pexels.com/photos/5468739/pexels-photo-5468739.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Beauty editorial">
+    <div>
+      <div class="section-kicker">The edit</div>
+      <h3>Soft glamour, made effortless.</h3>
+      <p>Build a polished everyday look or turn it up for the evening with our curated complexion, color and finishing essentials.</p>
+      <button class="btn" onclick="filterProducts('Sets')">Shop the edit</button>
+    </div>
+  </article>
+  <article class="editorial-card">
+    <img src="https://images.pexels.com/photos/9219004/pexels-photo-9219004.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Makeup artist working">
+    <div>
+      <div class="section-kicker">Beauty, personalized</div>
+      <h3>Your routine, your way.</h3>
+      <p>Use our look quiz, shade finder and routine builder to make choosing beauty feel simple.</p>
+      <button class="btn" onclick="openQuiz()">Discover your look</button>
+    </div>
+  </article>
+</section>
+
+<section class="story-panel" id="story">
+  <img src="https://images.pexels.com/photos/6575019/pexels-photo-6575019.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Luxury beauty portrait">
+  <div class="story-copy">
+    <div class="section-kicker">Our philosophy</div>
+    <h2>Beauty should feel personal.</h2>
+    <p>ELARUNE BEAUTY was imagined around one simple idea: the best beauty routine is the one that feels like yours. We pair modern formulas, flattering shades and thoughtful curation so you can spend less time guessing and more time enjoying the ritual.</p>
+    <div class="pill-row">
+      <span class="pill">Curated essentials</span><span class="pill">Everyday luxury</span><span class="pill">Personal guidance</span>
+    </div>
+    <button class="btn" onclick="openSupport()">Talk to beauty support</button>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-kicker">The ELARUNE edit</div>
+  <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);margin:.1rem 0 1.2rem">Loved for the ritual.</h2>
+  <div class="review-grid">
+    <article class="review-card"><div class="stars">★★★★★</div><p>“The kind of beauty collection that makes getting ready feel calmer and more intentional.”</p><small>Demo editorial review</small></article>
+    <article class="review-card"><div class="stars">★★★★★</div><p>“The curation is easy to understand, and the routine tools make choosing products much less overwhelming.”</p><small>Demo editorial review</small></article>
+    <article class="review-card"><div class="stars">★★★★★</div><p>“Soft, polished and elevated without feeling complicated. That is exactly the ELARUNE mood.”</p><small>Demo editorial review</small></article>
+  </div>
+</section>
+
+<section class="journal" id="journal">
+  <div class="section-kicker">Beauty journal</div>
+  <h2>Little rituals. Better results.</h2>
+  <div class="journal-grid">
+    <article class="journal-card"><img src="https://images.pexels.com/photos/7881274/pexels-photo-7881274.jpeg?auto=compress&cs=tinysrgb&w=900" alt=""><div><h3>How to build a five-minute soft-glam routine</h3><p>Start with the essentials, layer lightly and let your natural features stay part of the look.</p></div></article>
+    <article class="journal-card"><img src="https://images.pexels.com/photos/8570002/pexels-photo-8570002.jpeg?auto=compress&cs=tinysrgb&w=900" alt=""><div><h3>Finding your finish</h3><p>A simple guide to choosing a complexion finish that fits your style and your day.</p></div></article>
+    <article class="journal-card"><img src="https://images.pexels.com/photos/8065401/pexels-photo-8065401.jpeg?auto=compress&cs=tinysrgb&w=900" alt=""><div><h3>The art of a polished lip</h3><p>Prep, define, tint and finish for an effortless lip that looks intentional.</p></div></article>
+  </div>
+</section>
+
+<section id="community">
+  <div class="section-kicker">The world of ELARUNE</div>
+  <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);margin:.1rem 0 1.2rem">Beauty, beyond the bag.</h2>
+  <div class="social-grid">
+    <img src="https://images.pexels.com/photos/5468739/pexels-photo-5468739.jpeg?auto=compress&cs=tinysrgb&w=700" alt="">
+    <img src="https://images.pexels.com/photos/9219004/pexels-photo-9219004.jpeg?auto=compress&cs=tinysrgb&w=700" alt="">
+    <img src="https://images.pexels.com/photos/6575019/pexels-photo-6575019.jpeg?auto=compress&cs=tinysrgb&w=700" alt="">
+    <img src="https://images.pexels.com/photos/7881274/pexels-photo-7881274.jpeg?auto=compress&cs=tinysrgb&w=700" alt="">
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <div class="section-kicker">Private beauty notes</div>
+  <h2>Come a little closer.</h2>
+  <p>Join the ELARUNE list for new edits, beauty notes, routine inspiration and occasional private offers.</p>
+  <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+    <input id="newsletterEmail" type="email" placeholder="Your email address" required>
+    <button type="submit">Join ELARUNE</button>
+  </form>
+</section>
+
+<footer class="v2-footer">
+  <div class="footer-cols">
+    <div><strong style="font-family:Georgia,serif;font-size:1.4rem">ELARUNE BEAUTY</strong><p style="opacity:.6;line-height:1.6">Beauty, curated around you.</p></div>
+    <div><h4>Shop</h4><a href="#products">All products</a><a href="#collections">Collections</a><a href="#products">Bestsellers</a></div>
+    <div><h4>Discover</h4><a href="#story">Our philosophy</a><a href="#journal">Beauty journal</a><a href="#reviews">Reviews</a></div>
+    <div><h4>Help</h4><a href="#" onclick="openSupport();return false">Beauty support</a><a href="#" onclick="openOrders();return false">My orders</a><a href="#" onclick="openCart();return false">Shopping bag</a></div>
+  </div>
+</footer>
+
+
+<script>
+function subscribeNewsletter(e){
+  e.preventDefault();
+  const email=document.getElementById('newsletterEmail').value.trim();
+  if(!email)return;
+  localStorage.setItem('elarune_newsletter',email);
+  alert('Welcome to ELARUNE. Your beauty notes are on the way.');
+  e.target.reset();
+}
+function filterProducts(category){
+  const el=document.getElementById('products');
+  if(el) el.scrollIntoView({behavior:'smooth'});
+  if(typeof window.setCategory==='function') window.setCategory(category);
+}
+</script>
+
+</body>
+</html>
